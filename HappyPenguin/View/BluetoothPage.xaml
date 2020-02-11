@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HappyPenguin.ViewModel"
+    x:Class="HappyPenguin.View.BluetoothPage"
+    Title="Bluetooth"
+    BackgroundColor="{StaticResource backgroundColor}">
+    <ContentPage.BindingContext>
+        <local:BluetoothViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand">
+            <Label
+                Text="Welcome to Bluetooth Page"
+                FontSize="20"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Text="Paired device: "
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="End"
+                    VerticalTextAlignment="Start"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand" />
+                <Label
+                    Text="{Binding Status}"
+                    FontSize="Body"
+                    FontAttributes="None"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="End"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+            <Button
+                Text="Scan for devices"
+                FontSize="Title"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Command="{Binding OnTapped}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
