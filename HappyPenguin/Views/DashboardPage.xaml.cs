@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace HappyPenguin.View
+namespace HappyPenguin.Views
 {
-    public partial class GraphPage : ContentPage
+    public partial class DashboardPage : ContentPage
     {
-        public GraphPage()
+        public DashboardPage()
         {
             InitializeComponent();
         }

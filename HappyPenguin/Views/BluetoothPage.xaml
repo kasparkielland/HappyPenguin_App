@@ -2,8 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:HappyPenguin.ViewModel"
-    x:Class="HappyPenguin.View.BluetoothPage"
+    xmlns:local="clr-namespace:HappyPenguin.ViewModels"
+    xmlns:views="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:ctrl="clr-namespace:HappyPenguin.Controls"
+    x:Class="HappyPenguin.Views.BluetoothPage"
     Title="Bluetooth"
     BackgroundColor="{StaticResource backgroundColor}">
     <ContentPage.BindingContext>
@@ -11,8 +13,28 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+        <!--<Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding TapGestureRecognizerTappedCommand}"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+            <ctrl:CircleScanner
+                x:Name="CircleScanner"
+                IsActive="{Binding IsScanning, Mode=OneWay}">
+            </ctrl:CircleScanner>
+            <Label
+                TextColor="White"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Text="{Binding StatusText, Mode=OneWay}"></Label>
+        </Grid>-->
         <StackLayout
             VerticalOptions="FillAndExpand">
+            <ctrl:CircleScanner
+                x:Name="CircleScanner"
+                IsActive="{Binding IsScanning, Mode=OneWay}">
+            </ctrl:CircleScanner>
             <Label
                 Text="Welcome to Bluetooth Page"
                 FontSize="20"
@@ -31,20 +53,28 @@
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="EndAndExpand" />
                 <Label
-                    Text="{Binding Status}"
-                    FontSize="Body"
+                    Text="{Binding PairedDevice}"
+                    FontSize="Subtitle"
                     FontAttributes="None"
                     HorizontalTextAlignment="Start"
                     VerticalTextAlignment="End"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="StartAndExpand" />
             </StackLayout>
+            <Label
+                Text="{Binding StatusText, Mode=OneWay}"
+                FontSize="Body"
+                FontAttributes="None"
+                HorizontalTextAlignment="Start"
+                VerticalTextAlignment="End"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="StartAndExpand" />
             <Button
-                Text="Scan for devices"
+                Text="{Binding ActionText, Mode=OneWay}"
                 FontSize="Title"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="CenterAndExpand"
-                Command="{Binding OnTapped}" />
+                Command="{Binding TapCommand, Mode=OneWay}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

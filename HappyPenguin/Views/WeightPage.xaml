@@ -2,8 +2,8 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:HappyPenguin.ViewModel"
-    x:Class="HappyPenguin.View.WeightPage"
+    xmlns:local="clr-namespace:HappyPenguin.ViewModels"
+    x:Class="HappyPenguin.Views.WeightPage"
     Title="Log New Weight"
     BackgroundColor="{StaticResource backgroundColor}">
     <ContentPage.BindingContext>

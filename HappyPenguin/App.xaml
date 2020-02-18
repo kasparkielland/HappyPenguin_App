@@ -1,4 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<!--<prism:PrismApplication
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+    x:Class="HappyPenguin.App">">-->
+
 <Application
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -9,6 +15,8 @@
     <Application.Resources>
         <Color
             x:Key="themeColor">#EF3D55</Color>
+        <Color
+            x:Key="lightthemeColor">#EF9BA6</Color>
         <Color
             x:Key="grayColor">Gray</Color>
         <Color

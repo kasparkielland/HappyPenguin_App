@@ -2,13 +2,13 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="HappyPenguin.View.DashboardPage"
-    Title="Dashboard"
+    x:Class="HappyPenguin.Views.GraphPage"
+    Title="Graph"
     BackgroundColor="{StaticResource backgroundColor}">
     <ContentPage.Content>
         <StackLayout>
             <Label
-                Text="Welcome to Dashboard Page"
+                Text="Welcome to Graph Page"
                 FontSize="20"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand" />

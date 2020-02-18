@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace HappyPenguin.ViewModel
+namespace HappyPenguin.ViewModels
 {
     public class WeightViewModel : INotifyPropertyChanged
     {
