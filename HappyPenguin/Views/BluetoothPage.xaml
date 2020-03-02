@@ -2,14 +2,12 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:HappyPenguin.ViewModels"
-    xmlns:views="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
-    xmlns:ctrl="clr-namespace:HappyPenguin.Controls"
+    xmlns:local="clr-namespace:HappyPenguin"
     x:Class="HappyPenguin.Views.BluetoothPage"
-    Title="Bluetooth"
+    Title="Bluetooth Page"
     BackgroundColor="{StaticResource backgroundColor}">
     <ContentPage.BindingContext>
-        <local:BluetoothViewModel />
+        <local:BluetoothViewModel_ />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -29,12 +27,9 @@
                 VerticalTextAlignment="Center"
                 Text="{Binding StatusText, Mode=OneWay}"></Label>
         </Grid>-->
+
         <StackLayout
             VerticalOptions="FillAndExpand">
-            <ctrl:CircleScanner
-                x:Name="CircleScanner"
-                IsActive="{Binding IsScanning, Mode=OneWay}">
-            </ctrl:CircleScanner>
             <Label
                 Text="Welcome to Bluetooth Page"
                 FontSize="20"

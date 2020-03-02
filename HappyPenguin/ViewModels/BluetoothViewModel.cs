@@ -69,18 +69,26 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
+using System.ComponentModel;
 using System.Windows.Input;
+using Xamarin.Forms;
+
 
 namespace HappyPenguin.ViewModels
 {
-    public class BluetoothViewModel : BindableBase, INavigationAware
+    public class BluetoothViewModel : BindableBase, INavigationAware, INotifyPropertyChanged
     {
         private INavigationService _navigationService;
         private IAdapter _btAdapter;
         private IDevice _btDevice;
 
-        public ICommand TapCommand { get; set; }
+        ICommand tapCommand;
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        public ICommand TapCommand
+        {
+            get { return tapCommand; }
+        }
         private bool _isScanning;
 
         public bool IsScanning
@@ -105,19 +113,24 @@ namespace HappyPenguin.ViewModels
             set { SetProperty(ref _actionText, value); }
         }
 
-        public BluetoothViewModel() //INavigationService navigationService, IAdapter btAdapter
+        public BluetoothViewModel()
         {
-
-            //_navigationService = navigationService;
-            //_btAdapter = btAdapter;
-            _btAdapter.DeviceDiscovered += OnDeviceDiscovered;
-            TapCommand = new DelegateCommand(OnButtonTapped);
             ActionText = "Tap to scan";
+            tapCommand = new Command(OnButtonTapped);
         }
+
+        //public BluetoothViewModel(INavigationService navigationService, IAdapter btAdapter)
+        //{
+        //    _navigationService = navigationService;
+        //    _btAdapter = btAdapter;
+        //    _btAdapter.DeviceDiscovered += OnDeviceDiscovered;
+        //    TapCommand = new DelegateCommand(OnButtonTapped);
+        //    ActionText = "Tap to scan";
+        //}
 
         private void OnDeviceDiscovered(object sender, DeviceEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(e.Device.Name) && e.Device.Name.Contains("HC-05"))
+            if (!string.IsNullOrWhiteSpace(e.Device.Name) && e.Device.Name.Contains("MLT-BT05"))
             {
                 _btDevice = e.Device;
                 StatusText = "Connecting...";
@@ -161,6 +174,11 @@ namespace HappyPenguin.ViewModels
         public void OnNavigatingTo(INavigationParameters parameters)
         {
 
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
