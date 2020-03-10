@@ -1,28 +1,79 @@
-﻿using Plugin.BLE.Abstractions.Contracts;
+﻿using MvvmCross;
+using Plugin.BLE;
+using Plugin.BLE.Abstractions.Contracts;
 using Plugin.BLE.Abstractions.EventArgs;
+using Plugin.BLE.Abstractions.Exceptions;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace HappyPenguin.ViewModels
 {
-    public class BluetoothViewModel : BindableBase, INavigationAware
+    public class BluetoothViewModel : INotifyPropertyChanged
     {
-        private INavigationService _navigationService;
+        private IBluetoothLE ble;
+        private IAdapter adapter;
+        private ObservableCollection<IDevice> deviceList;
+
         private IAdapter _btAdapter;
         private IDevice _btDevice;
 
-        public ICommand TapCommand { get; set; }
+        ICommand tapCommand;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ICommand TapCommand
+        {
+            get { return tapCommand; }
+        }
+
+        private bool _deviceList_ItemSelected;
+
+        public bool DeviceList_ItemSelected
+        {
+            get { return _deviceList_ItemSelected; }
+            set
+            {
+                if (_deviceList_ItemSelected != value)
+                {
+                    _deviceList_ItemSelected = value;
+                    OnPropertyChanged("DeviceList_ItemSelected");
+                }
+            }
+        }
 
         private bool _isScanning;
 
         public bool IsScanning
         {
             get { return _isScanning; }
-            set { SetProperty(ref _isScanning, value); }
+            set
+            {
+                if (_isScanning != value)
+                {
+                    _isScanning = value;
+                    OnPropertyChanged("IsScanning");
+                }
+            }
+        }
+
+        private string _pairedDevice;
+
+        public string PairedDevice
+        {
+            get { return _pairedDevice; }
+            set
+            {
+                if (_pairedDevice != value)
+                {
+                    _pairedDevice = value;
+                    OnPropertyChanged("PairedDevice");
+                }
+            }
         }
 
         private string _statusText;
@@ -30,7 +81,14 @@ namespace HappyPenguin.ViewModels
         public string StatusText
         {
             get { return _statusText; }
-            set { SetProperty(ref _statusText, value); }
+            set
+            {
+                if (_statusText != value)
+                {
+                    _statusText = value;
+                    OnPropertyChanged("StatusText");
+                }
+            }
         }
 
         private string _actionText;
@@ -38,25 +96,74 @@ namespace HappyPenguin.ViewModels
         public string ActionText
         {
             get { return _actionText; }
-            set { SetProperty(ref _actionText, value); }
+            set
+            {
+                if (_actionText != value)
+                {
+                    _actionText = value;
+                    OnPropertyChanged("ActionText");
+                }
+            }
         }
 
-        public BluetoothViewModel() //INavigationService navigationService, IAdapter btAdapter
-        {
+        private string _isActionEnabled;
 
-            //_navigationService = navigationService;
-            //_btAdapter = btAdapter;
-            _btAdapter.DeviceDiscovered += OnDeviceDiscovered;
-            TapCommand = new DelegateCommand(OnButtonTapped);
-            ActionText = "Tap to scan";
+        public string IsActionEnabled
+        {
+            get { return _isActionEnabled; }
+            set
+            {
+                if (_isActionEnabled != value)
+                {
+                    _isActionEnabled = value;
+                    OnPropertyChanged("IsActionEnabled");
+                }
+            }
         }
 
-        private void OnDeviceDiscovered(object sender, DeviceEventArgs e)
+        public BluetoothViewModel()
         {
-            if (!string.IsNullOrWhiteSpace(e.Device.Name) && e.Device.Name.Contains("HC-05"))
+            this.IsScanning = false;
+            this.PairedDevice = "No devices connected";
+            this.ActionText = "Start Scan";
+            this.StatusText = "";
+            this.IsActionEnabled = "True";
+            if (_btDevice != null) _btAdapter.DisconnectDeviceAsync(_btDevice);
+
+            ble = CrossBluetoothLE.Current;
+            adapter = CrossBluetoothLE.Current.Adapter;
+
+            // configure the TapCommand with a method
+            tapCommand = new DelegateCommand(OnButtonTapped);
+        }
+
+        //public BluetoothViewModel(INavigationService navigationService, IAdapter btAdapter) //INavigationService navigationService, IAdapter //btAdapter
+        //{
+        //
+        //    _navigationService = navigationService;
+        //    _btAdapter = btAdapter;
+        //    _btAdapter.DeviceDiscovered += OnDeviceDiscovered;
+        //    //tapCommand = new DelegateCommand(OnButtonTapped);
+        //}
+
+        private async void OnDeviceDiscovered(object sender, DeviceEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(e.Device.Name) && e.Device.Name.Contains("MLT-BT05"))
             {
                 _btDevice = e.Device;
                 StatusText = "Connecting...";
+                try
+                {
+                    await _btAdapter.ConnectToDeviceAsync(_btDevice);
+                }
+                catch (DeviceConnectionException exeption)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Could not connect to bluetooth\nError: " + exeption, "OK");
+                }
+                catch (Exception exeption)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Could not connect to bluetooth\nError: " + exeption, "OK");
+                }
                 NavigationParameters p = new NavigationParameters
                 {
                     { "Device", _btDevice }
@@ -68,99 +175,55 @@ namespace HappyPenguin.ViewModels
 
         private async void OnButtonTapped()
         {
+            var state = ble.State;
+            if (state.ToString().Equals("Off"))
+            {
+                await Application.Current.MainPage.DisplayAlert("Bluetooth is OFF", "Your bluetooth is turned OFF!\nPlease go to settings and turn bluetooth ON", "OK");
+            }
+
+
             IsScanning = !IsScanning;
 
             if (_isScanning)
             {
                 StatusText = "Searching...";
-                await _btAdapter.StartScanningForDevicesAsync();
+                ActionText = "Stop scan";
+                IsActionEnabled = "False";
+                try
+                {
+                    await _btAdapter.StartScanningForDevicesAsync();
+                }
+                catch (DeviceConnectionException exeption)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Could not scan for devices\nDevice Connection Exception Error: " + exeption, "OK");
+                }
+                catch (Exception exeption)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Could not scan for devices\nException Error: " + exeption, "OK");
+                }
             }
             else
             {
-                await _btAdapter.StopScanningForDevicesAsync();
-                ActionText = "Tap to scan";
+                try
+                {
+                    await _btAdapter.StopScanningForDevicesAsync();
+                }
+                catch (DeviceConnectionException exeption)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Could not stop scan for devices\nError: " + exeption, "OK");
+                }
+                catch (Exception exeption)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Could not stop scan for devices\nError: " + exeption, "OK");
+                }
             }
+            ActionText = "Start scan";
+            IsActionEnabled = "True";
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-
-        }
-
-        public void OnNavigatedTo(INavigationParameters parameters)
-        {
-            if (_btDevice != null) _btAdapter.DisconnectDeviceAsync(_btDevice);
-            ActionText = "Tap to scan";
-            IsScanning = false;
-        }
-
-        public void OnNavigatingTo(INavigationParameters parameters)
-        {
-
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
-
-//using System.ComponentModel;
-//using System.Windows.Input;
-//using Xamarin.Forms;
-//using Plugin.BluetoothLE;
-//using Java.Util;
-
-//namespace HappyPenguin.ViewModels
-//{
-//    public class BluetoothViewModel : INotifyPropertyChanged
-//    {
-//        // Unique ID for bloetooth device
-//        private const string UUID = "00001101-0000-1000-8000-00805F9B34FB";
-
-
-
-//        string status;
-//        ICommand tapCommand;
-//        public event PropertyChangedEventHandler PropertyChanged;
-
-//        public ICommand TapCommand
-//        {
-//            get { return tapCommand; }
-//        }
-
-
-//        public BluetoothViewModel()
-//        {
-//            // configure the TapCommand with a method
-//            tapCommand = new Command(OnTapped);
-
-//        }
-
-//        public string Status
-//        {
-//            set
-//            {
-//                if (status != value)
-//                {
-//                    status = value;
-//                    OnPropertyChanged("Status");
-//                }
-//            }
-//            get
-//            {
-//                return status;
-//            }
-//        }
-
-
-//        void OnTapped()
-//        {
-//            this.Status = "Button pressed";
-
-//        }
-
-
-
-//        protected virtual void OnPropertyChanged(string propertyName)
-//        {
-//            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-//        }
-//    }
-//}

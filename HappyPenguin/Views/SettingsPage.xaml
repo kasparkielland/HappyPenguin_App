@@ -11,6 +11,5 @@
             FontSize="20"
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand" />
-
     </ContentPage.Content>
 </ContentPage>

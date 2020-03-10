@@ -6,9 +6,9 @@
     x:Class="HappyPenguin.Views.BluetoothPage"
     Title="Bluetooth Page"
     BackgroundColor="{StaticResource backgroundColor}">
-    <ContentPage.BindingContext>
-        <local:BluetoothViewModel_ />
-    </ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
+        <local:BluetoothViewModel />
+    </ContentPage.BindingContext>-->
 
     <ContentPage.Content>
         <!--<Grid>
@@ -48,7 +48,7 @@
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="EndAndExpand" />
                 <Label
-                    Text="{Binding PairedDevice}"
+                    Text="{Binding PairedDevice, Mode=OneWay}"
                     FontSize="Subtitle"
                     FontAttributes="None"
                     HorizontalTextAlignment="Start"
@@ -60,16 +60,33 @@
                 Text="{Binding StatusText, Mode=OneWay}"
                 FontSize="Body"
                 FontAttributes="None"
-                HorizontalTextAlignment="Start"
+                HorizontalTextAlignment="Center"
                 VerticalTextAlignment="End"
                 VerticalOptions="CenterAndExpand"
-                HorizontalOptions="StartAndExpand" />
+                HorizontalOptions="CenterAndExpand" />
             <Button
                 Text="{Binding ActionText, Mode=OneWay}"
+                IsEnabled="{Binding IsActionEnabled, Mode=OneWay}"
                 FontSize="Title"
                 VerticalOptions="StartAndExpand"
                 HorizontalOptions="CenterAndExpand"
                 Command="{Binding TapCommand, Mode=OneWay}" />
+            <ListView
+                BackgroundColor="{StaticResource backgroundColor}"
+                SeparatorColor="{StaticResource grayColor}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label
+                                    Text="{Binding NativeDevice.Id}" />
+                                <Label
+                                    Text="{Binding NativeDevice.Name}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

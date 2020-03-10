@@ -3,6 +3,14 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Plugin.BLE;
+using Plugin.BLE.Abstractions.Contracts;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Android.Bluetooth;
+using System.Threading;
+using Java.IO;
+using Java.Util;
 
 namespace HappyPenguin.ViewModels
 {
@@ -13,6 +21,15 @@ namespace HappyPenguin.ViewModels
         string weight;
         int weightLabel_FontSize;
         bool timeStamp_IsVisible;
+
+        private IBluetoothLE ble;
+        private IAdapter adapter;
+        private IDevice device;
+
+        private CancellationTokenSource _ct { get; set; }
+
+        const int RequestResolveError = 1000;
+
 
         ICommand tapCommand;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -123,10 +140,160 @@ namespace HappyPenguin.ViewModels
             changeWeightFrame();
         }
 
+        /// <summary>
+		/// Start the "reading" loop 
+		/// </summary>
+		/// <param name="name">Name of the paired bluetooth device (also a part of the name)</param>
+		public void Start(string name, int sleepTime = 200, bool readAsCharArray = false)
+        {
+
+            Task.Run(async () => loop(name, sleepTime, readAsCharArray));
+        }
+
+        private async Task loop(string name, int sleepTime, bool readAsCharArray)
+        {
+            BluetoothDevice device = null;
+            BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
+            BluetoothSocket BthSocket = null;
+
+            _ct = new CancellationTokenSource();
+            while (_ct.IsCancellationRequested == false)
+            {
+
+                try
+                {
+                    Thread.Sleep(sleepTime);
+
+                    adapter = BluetoothAdapter.DefaultAdapter;
+
+                    if (adapter == null)
+                        System.Diagnostics.Debug.WriteLine("No Bluetooth adapter found.");
+                    else
+                        System.Diagnostics.Debug.WriteLine("Adapter found!!");
+
+                    if (!adapter.IsEnabled)
+                        System.Diagnostics.Debug.WriteLine("Bluetooth adapter is not enabled.");
+                    else
+                        System.Diagnostics.Debug.WriteLine("Adapter enabled!");
+
+                    System.Diagnostics.Debug.WriteLine("Try to connect to " + name);
+
+                    foreach (var bd in adapter.BondedDevices)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Paired devices found: " + bd.Name.ToUpper());
+                        if (bd.Name.ToUpper().IndexOf(name.ToUpper()) >= 0)
+                        {
+
+                            System.Diagnostics.Debug.WriteLine("Found " + bd.Name + ". Try to connect with it!");
+                            device = bd;
+                            break;
+                        }
+                    }
+
+                    if (device == null)
+                        System.Diagnostics.Debug.WriteLine("Named device not found.");
+                    else
+                    {
+                        UUID uuid = UUID.FromString("00001101-0000-1000-8000-00805F9B34FB");
+                        if ((int)Android.OS.Build.VERSION.SdkInt >= 10) // Gingerbread 2.3.3 2.3.4
+                            BthSocket = device.CreateInsecureRfcommSocketToServiceRecord(uuid);
+                        else
+                            BthSocket = device.CreateRfcommSocketToServiceRecord(uuid);
+
+                        if (BthSocket != null)
+                        {
+
+
+                            //Task.Run ((Func<Task>)loop); /*) => {
+                            await BthSocket.ConnectAsync();
+
+
+                            if (BthSocket.IsConnected)
+                            {
+                                System.Diagnostics.Debug.WriteLine("Connected!");
+                                var mReader = new InputStreamReader(BthSocket.InputStream);
+                                var buffer = new BufferedReader(mReader);
+                                //buffer.re
+                                while (_ct.IsCancellationRequested == false)
+                                {
+                                    if (buffer.Ready())
+                                    {
+                                        //string data =  buffer
+                                        //string data = buffer.
+
+                                        //string data = await buffer.ReadLineAsync();
+                                        char[] chr = new char[100];
+                                        //await buffer.ReadAsync(chr);
+                                        string data = "";
+                                        if (readAsCharArray)
+                                        {
+
+                                            await buffer.ReadAsync(chr);
+                                            foreach (char c in chr)
+                                            {
+
+                                                if (c == '\0')
+                                                    break;
+                                                data += c;
+                                            }
+
+                                        }
+                                        else
+                                            data = await buffer.ReadLineAsync();
+
+                                        if (data.Length > 0)
+                                        {
+                                            System.Diagnostics.Debug.WriteLine("Letto: " + data);
+                                            Xamarin.Forms.MessagingCenter.Send<App, string>((App)Xamarin.Forms.Application.Current, "Data", data);
+                                            this.Weight = data + " kg";
+                                        }
+                                        else
+                                            System.Diagnostics.Debug.WriteLine("No data");
+
+                                    }
+                                    else
+                                        System.Diagnostics.Debug.WriteLine("No data to read");
+
+                                    // A little stop to the uneverending thread...
+                                    System.Threading.Thread.Sleep(sleepTime);
+                                    if (!BthSocket.IsConnected)
+                                    {
+                                        System.Diagnostics.Debug.WriteLine("BthSocket.IsConnected = false, Throw exception");
+                                        throw new Exception();
+                                    }
+                                }
+
+                                System.Diagnostics.Debug.WriteLine("Exit the inner loop");
+
+                            }
+                        }
+                        else
+                            System.Diagnostics.Debug.WriteLine("BthSocket = null");
+
+                    }
+
+
+                }
+                catch
+                {
+                }
+
+                finally
+                {
+                    if (BthSocket != null)
+                        BthSocket.Close();
+                    device = null;
+                    adapter = null;
+                }
+            }
+
+            System.Diagnostics.Debug.WriteLine("Exit the external loop");
+        }
+
         private void changeWeightFrame()
         {
             double current_weight;
-            string full_weight;
+            string full_text;
             int new_cornerRadius;
             int new_fontSize;
             bool new_timeStampIsVisible;
@@ -134,15 +301,17 @@ namespace HappyPenguin.ViewModels
             if (cornerRadius != 120)
             {
                 new_cornerRadius = 120;
-                full_weight = "Log new weight";
+                full_text = "Log new weight";
                 new_fontSize = 25;
                 new_timeStampIsVisible = false;
             }
             else
             {
+                full_text = "-- kg";
+                Start("HC-05", 200, true);
                 new_cornerRadius = 70;
-                current_weight = 50.5;
-                full_weight = current_weight.ToString() + " kg";
+                //current_weight = double.Parse(recieved_weight, System.Globalization.CultureInfo.InvariantCulture); ;
+                //full_text = current_weight.ToString() + " kg";
                 new_fontSize = 60;
                 this.TimeStamp = DateTime.Now;
                 new_timeStampIsVisible = true;
@@ -150,7 +319,7 @@ namespace HappyPenguin.ViewModels
             }
 
             this.CornerRadius = new_cornerRadius;
-            this.Weight = full_weight;
+            this.Weight = full_text;
             this.WeightLabel_FontSize = new_fontSize;
             this.TimeStamp_IsVisible = new_timeStampIsVisible;
 
