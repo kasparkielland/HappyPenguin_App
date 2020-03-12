@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E7AFA75223ED8F9E009FC27E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AFA75123ED8F9E009FC27E /* AppDelegate.swift */; };
+		E7AFA75423ED8F9E009FC27E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AFA75323ED8F9E009FC27E /* SceneDelegate.swift */; };
+		E7AFA75623ED8F9E009FC27E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AFA75523ED8F9E009FC27E /* ContentView.swift */; };
+		E7AFA75823ED8FA6009FC27E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7AFA75723ED8FA6009FC27E /* Assets.xcassets */; };
+		E7AFA75B23ED8FA6009FC27E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7AFA75A23ED8FA6009FC27E /* Preview Assets.xcassets */; };
+		E7AFA75E23ED8FA6009FC27E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AFA75C23ED8FA6009FC27E /* LaunchScreen.storyboard */; };
+		E7AFA76923ED8FA6009FC27E /* HappyPenguiniOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AFA76823ED8FA6009FC27E /* HappyPenguiniOSTests.swift */; };
+		E7AFA77423ED8FA6009FC27E /* HappyPenguiniOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AFA77323ED8FA6009FC27E /* HappyPenguiniOSUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7AFA76523ED8FA6009FC27E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7AFA74623ED8F9D009FC27E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7AFA74D23ED8F9D009FC27E;
+			remoteInfo = HappyPenguiniOS;
+		};
+		E7AFA77023ED8FA6009FC27E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7AFA74623ED8F9D009FC27E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7AFA74D23ED8F9D009FC27E;
+			remoteInfo = HappyPenguiniOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E7AFA74E23ED8F9E009FC27E /* HappyPenguiniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyPenguiniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7AFA75123ED8F9E009FC27E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7AFA75323ED8F9E009FC27E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E7AFA75523ED8F9E009FC27E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E7AFA75723ED8FA6009FC27E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7AFA75A23ED8FA6009FC27E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E7AFA75D23ED8FA6009FC27E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E7AFA75F23ED8FA6009FC27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7AFA76423ED8FA6009FC27E /* HappyPenguiniOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyPenguiniOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7AFA76823ED8FA6009FC27E /* HappyPenguiniOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyPenguiniOSTests.swift; sourceTree = "<group>"; };
+		E7AFA76A23ED8FA6009FC27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7AFA76F23ED8FA6009FC27E /* HappyPenguiniOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyPenguiniOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7AFA77323ED8FA6009FC27E /* HappyPenguiniOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyPenguiniOSUITests.swift; sourceTree = "<group>"; };
+		E7AFA77523ED8FA6009FC27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7AFA74B23ED8F9D009FC27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7AFA76123ED8FA6009FC27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7AFA76C23ED8FA6009FC27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E7AFA74523ED8F9D009FC27E = {
+			isa = PBXGroup;
+			children = (
+				E7AFA75023ED8F9E009FC27E /* HappyPenguiniOS */,
+				E7AFA76723ED8FA6009FC27E /* HappyPenguiniOSTests */,
+				E7AFA77223ED8FA6009FC27E /* HappyPenguiniOSUITests */,
+				E7AFA74F23ED8F9E009FC27E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E7AFA74F23ED8F9E009FC27E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7AFA74E23ED8F9E009FC27E /* HappyPenguiniOS.app */,
+				E7AFA76423ED8FA6009FC27E /* HappyPenguiniOSTests.xctest */,
+				E7AFA76F23ED8FA6009FC27E /* HappyPenguiniOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7AFA75023ED8F9E009FC27E /* HappyPenguiniOS */ = {
+			isa = PBXGroup;
+			children = (
+				E7AFA75123ED8F9E009FC27E /* AppDelegate.swift */,
+				E7AFA75323ED8F9E009FC27E /* SceneDelegate.swift */,
+				E7AFA75523ED8F9E009FC27E /* ContentView.swift */,
+				E7AFA75723ED8FA6009FC27E /* Assets.xcassets */,
+				E7AFA75C23ED8FA6009FC27E /* LaunchScreen.storyboard */,
+				E7AFA75F23ED8FA6009FC27E /* Info.plist */,
+				E7AFA75923ED8FA6009FC27E /* Preview Content */,
+			);
+			path = HappyPenguiniOS;
+			sourceTree = "<group>";
+		};
+		E7AFA75923ED8FA6009FC27E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E7AFA75A23ED8FA6009FC27E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E7AFA76723ED8FA6009FC27E /* HappyPenguiniOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7AFA76823ED8FA6009FC27E /* HappyPenguiniOSTests.swift */,
+				E7AFA76A23ED8FA6009FC27E /* Info.plist */,
+			);
+			path = HappyPenguiniOSTests;
+			sourceTree = "<group>";
+		};
+		E7AFA77223ED8FA6009FC27E /* HappyPenguiniOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E7AFA77323ED8FA6009FC27E /* HappyPenguiniOSUITests.swift */,
+				E7AFA77523ED8FA6009FC27E /* Info.plist */,
+			);
+			path = HappyPenguiniOSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7AFA74D23ED8F9D009FC27E /* HappyPenguiniOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7AFA77823ED8FA6009FC27E /* Build configuration list for PBXNativeTarget "HappyPenguiniOS" */;
+			buildPhases = (
+				E7AFA74A23ED8F9D009FC27E /* Sources */,
+				E7AFA74B23ED8F9D009FC27E /* Frameworks */,
+				E7AFA74C23ED8F9D009FC27E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HappyPenguiniOS;
+			productName = HappyPenguiniOS;
+			productReference = E7AFA74E23ED8F9E009FC27E /* HappyPenguiniOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E7AFA76323ED8FA6009FC27E /* HappyPenguiniOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7AFA77B23ED8FA6009FC27E /* Build configuration list for PBXNativeTarget "HappyPenguiniOSTests" */;
+			buildPhases = (
+				E7AFA76023ED8FA6009FC27E /* Sources */,
+				E7AFA76123ED8FA6009FC27E /* Frameworks */,
+				E7AFA76223ED8FA6009FC27E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7AFA76623ED8FA6009FC27E /* PBXTargetDependency */,
+			);
+			name = HappyPenguiniOSTests;
+			productName = HappyPenguiniOSTests;
+			productReference = E7AFA76423ED8FA6009FC27E /* HappyPenguiniOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E7AFA76E23ED8FA6009FC27E /* HappyPenguiniOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7AFA77E23ED8FA6009FC27E /* Build configuration list for PBXNativeTarget "HappyPenguiniOSUITests" */;
+			buildPhases = (
+				E7AFA76B23ED8FA6009FC27E /* Sources */,
+				E7AFA76C23ED8FA6009FC27E /* Frameworks */,
+				E7AFA76D23ED8FA6009FC27E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7AFA77123ED8FA6009FC27E /* PBXTargetDependency */,
+			);
+			name = HappyPenguiniOSUITests;
+			productName = HappyPenguiniOSUITests;
+			productReference = E7AFA76F23ED8FA6009FC27E /* HappyPenguiniOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7AFA74623ED8F9D009FC27E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Kaspar Kielland";
+				TargetAttributes = {
+					E7AFA74D23ED8F9D009FC27E = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					E7AFA76323ED8FA6009FC27E = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E7AFA74D23ED8F9D009FC27E;
+					};
+					E7AFA76E23ED8FA6009FC27E = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E7AFA74D23ED8F9D009FC27E;
+					};
+				};
+			};
+			buildConfigurationList = E7AFA74923ED8F9D009FC27E /* Build configuration list for PBXProject "HappyPenguiniOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E7AFA74523ED8F9D009FC27E;
+			productRefGroup = E7AFA74F23ED8F9E009FC27E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E7AFA74D23ED8F9D009FC27E /* HappyPenguiniOS */,
+				E7AFA76323ED8FA6009FC27E /* HappyPenguiniOSTests */,
+				E7AFA76E23ED8FA6009FC27E /* HappyPenguiniOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7AFA74C23ED8F9D009FC27E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7AFA75E23ED8FA6009FC27E /* LaunchScreen.storyboard in Resources */,
+				E7AFA75B23ED8FA6009FC27E /* Preview Assets.xcassets in Resources */,
+				E7AFA75823ED8FA6009FC27E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7AFA76223ED8FA6009FC27E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7AFA76D23ED8FA6009FC27E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7AFA74A23ED8F9D009FC27E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7AFA75223ED8F9E009FC27E /* AppDelegate.swift in Sources */,
+				E7AFA75423ED8F9E009FC27E /* SceneDelegate.swift in Sources */,
+				E7AFA75623ED8F9E009FC27E /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7AFA76023ED8FA6009FC27E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7AFA76923ED8FA6009FC27E /* HappyPenguiniOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7AFA76B23ED8FA6009FC27E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7AFA77423ED8FA6009FC27E /* HappyPenguiniOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7AFA76623ED8FA6009FC27E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7AFA74D23ED8F9D009FC27E /* HappyPenguiniOS */;
+			targetProxy = E7AFA76523ED8FA6009FC27E /* PBXContainerItemProxy */;
+		};
+		E7AFA77123ED8FA6009FC27E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7AFA74D23ED8F9D009FC27E /* HappyPenguiniOS */;
+			targetProxy = E7AFA77023ED8FA6009FC27E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E7AFA75C23ED8FA6009FC27E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7AFA75D23ED8FA6009FC27E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7AFA77623ED8FA6009FC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E7AFA77723ED8FA6009FC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7AFA77923ED8FA6009FC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"HappyPenguiniOS/Preview Content\"";
+				DEVELOPMENT_TEAM = RSBL9XB873;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = HappyPenguiniOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.happypenguin.Happy-Penguin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E7AFA77A23ED8FA6009FC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"HappyPenguiniOS/Preview Content\"";
+				DEVELOPMENT_TEAM = RSBL9XB873;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = HappyPenguiniOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.happypenguin.Happy-Penguin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E7AFA77C23ED8FA6009FC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RSBL9XB873;
+				INFOPLIST_FILE = HappyPenguiniOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HappyPenguin.HappyPenguiniOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HappyPenguiniOS.app/HappyPenguiniOS";
+			};
+			name = Debug;
+		};
+		E7AFA77D23ED8FA6009FC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RSBL9XB873;
+				INFOPLIST_FILE = HappyPenguiniOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HappyPenguin.HappyPenguiniOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HappyPenguiniOS.app/HappyPenguiniOS";
+			};
+			name = Release;
+		};
+		E7AFA77F23ED8FA6009FC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RSBL9XB873;
+				INFOPLIST_FILE = HappyPenguiniOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HappyPenguin.HappyPenguiniOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HappyPenguiniOS;
+			};
+			name = Debug;
+		};
+		E7AFA78023ED8FA6009FC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RSBL9XB873;
+				INFOPLIST_FILE = HappyPenguiniOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HappyPenguin.HappyPenguiniOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HappyPenguiniOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E7AFA74923ED8F9D009FC27E /* Build configuration list for PBXProject "HappyPenguiniOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7AFA77623ED8FA6009FC27E /* Debug */,
+				E7AFA77723ED8FA6009FC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7AFA77823ED8FA6009FC27E /* Build configuration list for PBXNativeTarget "HappyPenguiniOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7AFA77923ED8FA6009FC27E /* Debug */,
+				E7AFA77A23ED8FA6009FC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7AFA77B23ED8FA6009FC27E /* Build configuration list for PBXNativeTarget "HappyPenguiniOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7AFA77C23ED8FA6009FC27E /* Debug */,
+				E7AFA77D23ED8FA6009FC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7AFA77E23ED8FA6009FC27E /* Build configuration list for PBXNativeTarget "HappyPenguiniOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7AFA77F23ED8FA6009FC27E /* Debug */,
+				E7AFA78023ED8FA6009FC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E7AFA74623ED8F9D009FC27E /* Project object */;
+}

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:ignore="TextFields,HardcodedText" >
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="195dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="27dp"
+        android:textSize="14sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="126dp" />
+
+    <Button
+        android:id="@+id/open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_toEndOf="@+id/close"
+        android:layout_toRightOf="@+id/close"
+        android:text="Open bluetooth"/>
+
+    <Button
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="14dp"
+        android:text="Close bluetooth" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="132dp"
+        android:text="Weight values"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="155dp" />
+
+    <Button
+        android:id="@+id/setMqttDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="23dp"
+        android:onClick="setMQTTDetails"
+        android:text="MQTT details"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="79dp"
+        android:checked="false"
+        android:text="Send to cloud"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="23dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/open"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="110dp"
+        android:onClick="sendData"
+        android:text="Tare"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="110dp" />
+
+    <Button
+        android:id="@+id/viewGraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="20dp"
+        android:layout_toStartOf="@+id/setMqttDetails"
+        android:onClick="viewGraph"
+        android:text="View graph"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="73dp"
+        android:layout_marginRight="116dp"
+        android:layout_toLeftOf="@+id/setMqttDetails" />
+
+    <TextView
+        android:id="@+id/weightResult"
+        android:layout_width="321dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="266dp"
+        android:layout_marginEnd="33dp"
+        android:textSize="36sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="57dp"
+        android:layout_marginRight="33dp" />
+</RelativeLayout>
