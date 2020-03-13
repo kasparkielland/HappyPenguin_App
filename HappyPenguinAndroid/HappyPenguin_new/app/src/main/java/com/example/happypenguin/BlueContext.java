@@ -16,6 +16,7 @@ import java.util.UUID;
 public class BlueContext
 {
     private static BluetoothAdapter mBluetoothAdapter;
+
     private static BluetoothSocket mmSocket;
     private static BluetoothDevice mmDevice;
     public static OutputStream mmOutputStream;
@@ -31,7 +32,9 @@ public class BlueContext
         String statusMessage = "";
         try
         {
+
             mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
             if (mBluetoothAdapter == null)
             {
                 statusMessage = "No bluetooth adapter available";
