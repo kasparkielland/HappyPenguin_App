@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -64,7 +65,11 @@ public class BlueContext
     {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //Standard SerialPortService ID
 
-        mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
+        try {
+            mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
+        } catch ( IOException e ) {
+            Log.e( "Bluetooth Socket", "Bluetooth not available, or insufficient permissions" );
+        }
 
         mmSocket.connect();
 
