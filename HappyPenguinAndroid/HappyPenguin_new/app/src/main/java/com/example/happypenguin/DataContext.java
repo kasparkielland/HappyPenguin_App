@@ -211,7 +211,7 @@ public class DataContext
         }
         catch(MqttException ex)
         {
-            return "Could not close mqtt connection";
+            return "Could not close MQTT connection";
         }
     }
 }
