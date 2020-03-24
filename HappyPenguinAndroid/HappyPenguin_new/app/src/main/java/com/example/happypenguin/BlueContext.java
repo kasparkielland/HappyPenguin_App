@@ -47,7 +47,7 @@ public class BlueContext
             {
                 for (BluetoothDevice device : pairedDevices)
                 {
-                    if (device.getName().equals("MLT-BT05"))
+                    if (device.getName().equals("HC-05"))
                     {
                         mmDevice = device;
                         break;

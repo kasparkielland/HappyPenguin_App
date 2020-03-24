@@ -21,6 +21,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.concurrent.locks.ReentrantLock;
 
+import java.math.*;
+
 public class DataContext
 {
     private static String _broker = "tcp://m23.cloudmqtt.com";
@@ -91,6 +93,7 @@ public class DataContext
             }
             else
             {
+                data = decrypt(data);
                 dataValue = data;
                 return dataValue;
             }
@@ -213,5 +216,31 @@ public class DataContext
         {
             return "Could not close MQTT connection";
         }
+    }
+
+    //Primtallene
+    static float p = 69697;
+    static float q = 420691;
+
+    //Kalkulerer n
+    static float n=p*q;
+
+    //Kalkulerer phi
+    static float phi= (p-1)*(q-1);
+
+    //Danner dekrypteringsnøkkelen d ved hjelp av forhåndsbestemt e = 107
+    static float e = 7;
+    static float d1 = 1 / e;
+    static float d = d1 % phi;
+
+    private static Float decrypt(Float data){
+
+
+        // Dekrypterer meldingen m
+        data = (float) Math.pow(data, d);
+        data = data % n;
+
+        return data;
+
     }
 }

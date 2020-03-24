@@ -3,6 +3,7 @@ package com.example.happypenguin;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 catch (IOException ex) {
                     myLabel.setText(ex.toString());
+                    Log.e("IOException: ", ex.toString());
                 }
             }
         });
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     void displayWeight()
     {
-        wResult.setText(Float.toString(DataContext.getDataValue(0, true)) + " kg");
+        wResult.setText(DataContext.getDataValue(0, true) + " kg");
     }
 
     public void sendData(View view) throws IOException
