@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HappyPenguin.ViewModels"
+    x:Class="HappyPenguin.Views.BluetoothPage"
+    Title="Bluetooth Page"
+    BackgroundColor="{StaticResource backgroundColor}">
+    <!--<ContentPage.BindingContext>
+        <local:BluetoothViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Content>
+        <!--<Grid>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding TapGestureRecognizerTappedCommand}"></TapGestureRecognizer>
+            </Grid.GestureRecognizers>
+            <ctrl:CircleScanner
+                x:Name="CircleScanner"
+                IsActive="{Binding IsScanning, Mode=OneWay}">
+            </ctrl:CircleScanner>
+            <Label
+                TextColor="White"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Text="{Binding StatusText, Mode=OneWay}"></Label>
+        </Grid>-->
+
+        <StackLayout
+            VerticalOptions="FillAndExpand">
+            <Label
+                Text="Welcome to Bluetooth Page"
+                FontSize="20"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Text="Paired device: "
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="End"
+                    VerticalTextAlignment="Start"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="EndAndExpand" />
+                <Label
+                    Text="{Binding PairedDevice, Mode=OneWay}"
+                    FontSize="Subtitle"
+                    FontAttributes="None"
+                    HorizontalTextAlignment="Start"
+                    VerticalTextAlignment="End"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+            <Label
+                Text="{Binding StatusText, Mode=OneWay}"
+                FontSize="Body"
+                FontAttributes="None"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="End"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand" />
+            <Button
+                Text="{Binding ActionText, Mode=OneWay}"
+                IsEnabled="{Binding IsActionEnabled, Mode=OneWay}"
+                FontSize="Title"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Command="{Binding TapCommand, Mode=OneWay}" />
+            <ListView
+                BackgroundColor="{StaticResource backgroundColor}"
+                SeparatorColor="{StaticResource grayColor}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label
+                                    Text="{Binding NativeDevice.Id}" />
+                                <Label
+                                    Text="{Binding NativeDevice.Name}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
