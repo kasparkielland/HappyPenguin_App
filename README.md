@@ -1,4 +1,4 @@
-Happy Penguin Mobile Applications Code
+# Happy Penguin Mobile Applications Code
 
 The following Tree-structure are this repository's structure where the different directories are for AndroidStudio App, Xamarin Cross-Platform App and Xcode App (for running Xamarin App on iOS)
 ```
